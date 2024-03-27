@@ -1,0 +1,28 @@
+<div class="banner">
+    <div class="navbar">
+        <ul>
+        <div class="mid">
+            <li><a href="{{ url_for('home_bp.home') }}">HOME</a></li>
+            <div class="dropdown">
+                <div class="drop"><li><a href="{{ url_for('tracks_bp.display_tracks') }}">TRACKS ⤓</a></li>
+                <div class="dropdown-content">
+                    <li style="float:left;"><a href="{{ url_for('tracks_bp.display_albums') }}">ALBUMS</a></li>
+                    <li><a href="{{ url_for('tracks_bp.display_artists') }}">ARTISTS</a></li>
+                    <li><a href="{{ url_for('tracks_bp.display_genres') }}">GENRES</a></li>
+                </div>
+                </div>
+            </div>
+            <!-- <li><a href="{{ url_for('tracks_bp.display_albums') }}">LIKES</a></li> -->
+            
+            <li style="margin-left: 195px; font-weight: bold; color: rgb(155, 72, 0);">COMPSCI 235 A2</li>
+
+            {% if 'user_name' in session %}
+            <li style="float:right;"><a href="{{ url_for('auth_bp.logout') }}">LOGOUT</a></li>
+            {% else %}
+            <li style="float:right;"><a href="{{ url_for('auth_bp.register') }}">CREATE ACCOUNT</a></li>
+            <li style="float:right;"><a href="{{ url_for('auth_bp.login') }}">SIGN IN</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    </div>
+</div>

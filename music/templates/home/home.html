@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+{% if 'user_name' in session %} <h1 style="text-align: center"> Welcome, {{ session['user_name'] }}! </h1> 
+{% endif %}
+
+<br>
+
+<p>The realization of the market for downloadable music grew widespread with the development of Napster, a music and
+    file
+    sharing service created by Shawn Fanning that made a major impact on the Internet scene in 2000. Some services have
+    tethered downloads, meaning that playing songs requires an active membership. Napster was founded as a pioneering
+    peer-to-peer (P2P) file sharing Internet service that emphasized sharing audio files, typically music, encoded in
+    MP3
+    format. The original company ran into legal difficulties over copyright infringement, ceased operations and was
+    eventually acquired by Roxio. In its second incarnation Napster became an online music store until Rhapsody acquired
+    it
+    from Best Buy on December 1, 2011. Later companies and projects successfully followed its P2P file sharing
+    example
+    such as Gnutella, Freenet, Kazaa, Bearshare, and many others. Some services, like LimeWire, Scour, Grokster,
+    Madster,
+    and eDonkey2000, were brought down or changed due to similar circumstances.</p>
+
+<br>
+
+<p>The major record labels eventually decided to launch their own online stores, allowing them more direct control over
+    costs and pricing and more control over the presentation and packaging of songs and albums. Sony Music
+    Entertainment's
+    service did not do as well as was hoped. Many consumers felt the service was difficult to navigate and use. Sony's
+    pricing of US$3.50 per song track also discouraged many early adopters of the service. Furthermore, as MP3 Newswire
+    pointed out in its review of the service, users were actually only renting the tracks for that $3.50, because the
+    patron
+    did not own the audio file. After a certain point the files expired and could not be played again without
+    repurchase.
+    The service quickly failed.</p>
+
+<br>
+
+<p>Undaunted, the record industry tried again. Universal Music Group and Sony Music Entertainment teamed up with a
+    service
+    called Duet, later renamed pressplay. EMI, AOL/Time Warner and Bertelsmann Music Group teamed up with MusicNet.
+    Again,
+    both services struggled, hampered by high prices and heavy limitations on how downloaded files could be used once
+    paid
+    for. In the end, consumers chose instead to download music using illegal, free file sharing programs, which many
+    consumers felt were more convenient and easier to use. </p>
+
+<br>
+
+
+<p style="text-align: right; font-style: italic;">
+    Thank you, Wikipedia.
+</p>
+
+<br>
+
+<h1 style = "text-align: center; font-size: 25px;"> SPOTLIGHT </h1>
+
+    <div style="margin-top: 10px;"></div>
+
+    <!-- <div class = "artists">
+        <img src="https://i.pinimg.com/originals/e5/69/4b/e5694ba734a318dd0f7138228adb3170.jpg" alt="music logo" style="width:100px;height:95px; float: left; margin-right: 15px">
+    </div>
+    <div class = "artists">
+        <img src="https://i.pinimg.com/originals/e5/69/4b/e5694ba734a318dd0f7138228adb3170.jpg" alt="music logo" style="width:100px;height:95px; float: left; margin-right: 15px">
+    </div>
+    <div class = "artists">
+        <img src="https://i.pinimg.com/originals/e5/69/4b/e5694ba734a318dd0f7138228adb3170.jpg" alt="music logo" style="width:100px;height:95px; float: left; margin-right: 15px">
+    </div> -->
+
+    {% for track in home_tracks %}
+    <div class = "tracks" onclick="window.open('{{ track.track_url }}')">
+        <img src="https://i.pinimg.com/originals/e5/69/4b/e5694ba734a318dd0f7138228adb3170.jpg" alt="music logo" style="width:100px;height:95px; float: left; margin-right: 15px">
+        <h1>{{ track.title }}</h1>
+        <p>{{ track.artist.full_name }} ⚬ {{ track.album.title }}</p>
+        <p>{{ track.track_duration }} seconds</p>
+    </div>
+    {% endfor %}
+
+{% endblock %}

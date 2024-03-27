@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Music Application</title>
+        <link 
+        rel="stylesheet" 
+        href="{{ url_for('static', filename='css/style.css') }}"
+        />
+    
+    </head>
+
+
+    <body style="padding-bottom: 100px;">
+
+        <!-- Include navigation partial. -->
+        {% include 'navigation.html' %}
+
+        <div class="container">
+            
+            <!-- Main content -->
+            {% block content %} {% endblock %}
+
+        </div>
+
+    </body>
+
+</html>

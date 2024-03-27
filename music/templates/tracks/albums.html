@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+{% if prev_album is not none %}
+<button class="btn-general" onclick="location.href='{{prev_album}}'">Previous</button>
+{% else %}
+<button class="btn-general-disabled" disabled>Previous</button>
+{% endif %}
+
+
+{% if next_album is not none %}
+<button class="btn-general" onclick="location.href='{{next_album}}'">Next</button>
+{% else %}
+<button class="btn-general-disabled" disabled>Next</button>
+{% endif %}
+
+
+{% for album in list_of_albums %}
+<div class="tracks" onclick="location.href='{{ url_for ('tracks_bp.display_tracks', album_id = album.album_id) }}'">
+    <img src="https://i.pinimg.com/originals/e5/69/4b/e5694ba734a318dd0f7138228adb3170.jpg" alt="music logo"
+        style="width:100px;height:95px; float: left; margin-right: 15px">
+    <h1> {{ album.title }} ({{album.album_type}})</h1>
+    <p>Year: <b>{{ album.release_year }}</b></p>
+    <br>
+</div>
+{% endfor %}
+
+{% if prev_album is not none %}
+<button class="btn-general-bottom" onclick="location.href='{{prev_album}}'">Previous</button>
+{% else %}
+<button class="btn-general-disabled" disabled>Previous</button>
+{% endif %}
+
+{% if next_album is not none %}
+<button class="btn-general-bottom" onclick="location.href='{{next_album}}'">Next</button>
+{% else %}
+<button class="btn-general-disabled" disabled>Next</button>
+{% endif %}
+
+
+{% endblock %}
