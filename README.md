@@ -1,4 +1,4 @@
-# COMPSCI 235 Assignment 3
+# Flask App
 
 ## Description
 
